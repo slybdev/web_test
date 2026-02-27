@@ -1,8 +1,4 @@
-import { getAllProducts } from '@/app/actions/products';
-import type { Product } from '@/lib/supabase';
-import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
-import { cookies } from 'next/headers';
 
 export const metadata = {
   title: 'Nature Cure - Premium Health Supplements',
@@ -10,27 +6,6 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  let products: Product[] = [];
-  let hasError = false;
-  
-  try {
-    const result = await getAllProducts();
-    if (result && Array.isArray(result)) {
-      products = result;
-    }
-  } catch (error) {
-    console.error('[v0] Error loading products:', error);
-    hasError = true;
-  }
-  
-  // Get or create session ID
-  const cookieStore = await cookies();
-  let sessionId = cookieStore.get('sessionId')?.value;
-  
-  if (!sessionId) {
-    sessionId = `session_${Date.now()}_${Math.random()}`;
-  }
-
   return (
     <main className="min-h-screen bg-background">
       {/* Navigation Header */}
@@ -77,40 +52,14 @@ export default async function HomePage() {
             </p>
           </div>
 
-          {products.length > 0 ? (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                {products.slice(0, 6).map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    product={product}
-                    sessionId={sessionId}
-                  />
-                ))}
-              </div>
-
-              <div className="text-center">
-                <Link
-                  href="/products"
-                  className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors"
-                >
-                  View All Products
-                </Link>
-              </div>
-            </>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-xl text-gray-600">
-                {hasError ? 'Unable to load products. Please try again later.' : 'Products coming soon'}
-              </p>
-              <Link
-                href="/products"
-                className="inline-block mt-4 bg-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors"
-              >
-                Browse Products
-              </Link>
-            </div>
-          )}
+          <div className="text-center">
+            <Link
+              href="/products"
+              className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors"
+            >
+              Browse All Products
+            </Link>
+          </div>
         </div>
       </section>
 
