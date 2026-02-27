@@ -2,8 +2,6 @@
 
 import { supabase, type Product, type Review } from '@/lib/supabase';
 
-export type { Product, Review };
-
 export async function getAllProducts(): Promise<Product[]> {
   try {
     const { data, error } = await supabase

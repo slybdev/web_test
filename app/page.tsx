@@ -1,4 +1,5 @@
-import { getAllProducts, type Product } from '@/app/actions/products';
+import { getAllProducts } from '@/app/actions/products';
+import type { Product } from '@/lib/supabase';
 import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
 import { cookies } from 'next/headers';
