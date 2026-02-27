@@ -11,11 +11,16 @@ export const metadata = {
 
 export default async function HomePage() {
   let products: Product[] = [];
+  let hasError = false;
+  
   try {
-    products = await getAllProducts();
-    console.log('[v0] Loaded products:', products.length);
+    const result = await getAllProducts();
+    if (result && Array.isArray(result)) {
+      products = result;
+    }
   } catch (error) {
     console.error('[v0] Error loading products:', error);
+    hasError = true;
   }
   
   // Get or create session ID
@@ -95,7 +100,15 @@ export default async function HomePage() {
             </>
           ) : (
             <div className="text-center py-12">
-              <p className="text-xl text-gray-600">Products coming soon</p>
+              <p className="text-xl text-gray-600">
+                {hasError ? 'Unable to load products. Please try again later.' : 'Products coming soon'}
+              </p>
+              <Link
+                href="/products"
+                className="inline-block mt-4 bg-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors"
+              >
+                Browse Products
+              </Link>
             </div>
           )}
         </div>
