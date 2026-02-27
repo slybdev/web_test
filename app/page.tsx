@@ -9,7 +9,13 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  const products = await getAllProducts();
+  let products = [];
+  try {
+    products = await getAllProducts();
+    console.log('[v0] Loaded products:', products.length);
+  } catch (error) {
+    console.error('[v0] Error loading products:', error);
+  }
   
   // Get or create session ID
   const cookieStore = await cookies();
