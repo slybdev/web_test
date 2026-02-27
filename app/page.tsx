@@ -1,4 +1,4 @@
-import { getAllProducts } from '@/app/actions/products';
+import { getAllProducts, type Product } from '@/app/actions/products';
 import ProductCard from '@/components/ProductCard';
 import Link from 'next/link';
 import { cookies } from 'next/headers';
@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default async function HomePage() {
-  let products = [];
+  let products: Product[] = [];
   try {
     products = await getAllProducts();
     console.log('[v0] Loaded products:', products.length);
