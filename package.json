@@ -1,0 +1,27 @@
+{
+  "name": "nature-cure",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^19.0.0-rc",
+    "react-dom": "^19.0.0-rc",
+    "next": "^16.0.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "lucide-react": "^0.376.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/node": "^20.10.6",
+    "@types/react": "^19.0.0-rc",
+    "@types/react-dom": "^19.0.0-rc",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.16"
+  }
+}
