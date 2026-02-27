@@ -1,172 +1,193 @@
-import Link from 'next/link';
-
 export const metadata = {
-  title: 'Nature Cure - Premium Health Supplements',
-  description: 'High-quality health supplements and nutrition products for your wellness journey',
+  title: 'Nature - Health Supplement Landing Page',
+  description: 'Premium health supplements and nutrition products',
 };
 
-export default async function HomePage() {
+export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background">
-      {/* Navigation Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-primary">Nature Cure</h1>
-          <nav className="flex items-center gap-6">
-            <Link href="/products" className="text-foreground hover:text-primary font-medium">
-              Shop
-            </Link>
-            <Link 
-              href="/cart" 
-              className="bg-accent text-white px-4 py-2 rounded-lg font-medium hover:bg-yellow-600 transition-colors"
-            >
-              Cart
-            </Link>
+    <>
+      {/* Pre-loader-start */}
+      <div id="preloader">
+        <div className="tg-cube-grid">
+          <div className="tg-cube tg-cube1"></div>
+          <div className="tg-cube tg-cube2"></div>
+          <div className="tg-cube tg-cube3"></div>
+          <div className="tg-cube tg-cube4"></div>
+          <div className="tg-cube tg-cube5"></div>
+          <div className="tg-cube tg-cube6"></div>
+          <div className="tg-cube tg-cube7"></div>
+          <div className="tg-cube tg-cube8"></div>
+          <div className="tg-cube tg-cube9"></div>
+        </div>
+      </div>
+
+      {/* Scroll-top */}
+      <button className="scroll-top scroll-to-target" data-target="html">
+        <i className="fas fa-angle-up"></i>
+      </button>
+
+      {/* header-area */}
+      <header id="home">
+        <div id="header-top-fixed"></div>
+        <div id="sticky-header" className="menu-area">
+          <div className="container custom-container">
+            <div className="row">
+              <div className="col-12">
+                <div className="mobile-nav-toggler"><i className="flaticon-layout"></i></div>
+                <div className="menu-wrap">
+                  <nav className="menu-nav">
+                    <div className="logo">
+                      <a href="/"><img src="/images/logo.png" alt="Logo" /></a>
+                    </div>
+                    <div className="navbar-wrap main-menu d-none d-xl-flex">
+                      <ul className="navigation">
+                        <li className="active menu-item-has-children"><a href="#home" className="section-link">Home</a>
+                          <ul className="sub-menu">
+                            <li className="active"><a href="/">Home One</a></li>
+                            <li><a href="/">Home Two</a></li>
+                            <li><a href="/">Home Three</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#features" className="section-link">Features</a></li>
+                        <li><a href="#paroller" className="section-link">Product</a></li>
+                        <li><a href="#ingredient" className="section-link">Ingredient</a></li>
+                        <li><a href="#pricing" className="section-link">Pricing</a></li>
+                        <li className="menu-item-has-children"><a href="#">Shop</a>
+                          <ul className="sub-menu">
+                            <li><a href="/products">Our Shop</a></li>
+                            <li><a href="/products">Shop Details</a></li>
+                            <li><a href="/cart">Cart Page</a></li>
+                          </ul>
+                        </li>
+                        <li className="menu-item-has-children"><a href="#news" className="section-link">News</a>
+                          <ul className="sub-menu">
+                            <li><a href="#">Our Blog</a></li>
+                            <li><a href="#">Blog Details</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="#">contacts</a></li>
+                      </ul>
+                    </div>
+                    <div className="header-action d-none d-sm-block">
+                      <ul>
+                        <li className="header-shop-cart">
+                          <a href="/cart" className="cart-count"><i className="flaticon-shopping-cart"></i>
+                            <span className="mini-cart-count">0</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="mobile-menu">
+          <nav className="menu-box">
+            <div className="close-btn"><i className="fas fa-times"></i></div>
+            <div className="nav-logo">
+              <a href="/"><img src="/images/logo.png" alt="" /></a>
+            </div>
+            <div className="menu-outer"></div>
+            <div className="social-links">
+              <ul className="clearfix">
+                <li><a href="#"><i className="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i className="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i className="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i className="fab fa-linkedin-in"></i></a></li>
+                <li><a href="#"><i className="fab fa-youtube"></i></a></li>
+              </ul>
+            </div>
           </nav>
         </div>
+        <div className="menu-backdrop"></div>
       </header>
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary to-secondary text-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-5xl font-bold mb-4">Welcome to Nature Cure</h2>
-          <p className="text-xl text-gray-100 mb-8">
-            Premium health supplements and nutrition products for your wellness journey
-          </p>
-          <Link
-            href="/products"
-            className="inline-block bg-accent text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-colors"
-          >
-            Shop Now
-          </Link>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <div className="mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Featured Products</h2>
-            <p className="text-gray-600 text-lg">
-              Discover our handpicked selection of premium supplements
-            </p>
-          </div>
-
-          <div className="text-center">
-            <Link
-              href="/products"
-              className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-semibold text-lg hover:bg-secondary transition-colors"
-            >
-              Browse All Products
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Why Choose Nature Cure?</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                ✓
+      {/* main-area */}
+      <main className="main-area fix">
+        {/* banner-area */}
+        <section className="banner-area">
+          <div className="container">
+            <div className="row justify-content-center">
+              <div className="col-xxl-8 col-xl-7 col-lg-8 col-md-10">
+                <div className="banner-content text-center">
+                  <p className="banner-caption">.. Increased Energy With NATURE ..</p>
+                  <h2 className="title">Mix Protein Provided Way To Growth</h2>
+                  <a href="/products" className="btn btn-two">Shop Now</a>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Premium Quality</h3>
-              <p className="text-gray-700">
-                All our supplements are sourced from trusted manufacturers and tested for purity and potency.
-              </p>
             </div>
-
-            <div className="text-center">
-              <div className="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                ✓
+            <div className="row">
+              <div className="col-12">
+                <div className="banner-images text-center">
+                  <img src="/images/banner_img01.png" alt="img" className="main-img" />
+                  <img src="/images/banner_round_bg.png" alt="img" className="bg-shape" />
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Best Prices</h3>
-              <p className="text-gray-700">
-                Enjoy competitive pricing with exclusive discounts on bulk purchases and regular promotions.
-              </p>
             </div>
+          </div>
+          <div className="banner-shape one">
+            <img src="/images/banner_shape01.png" alt="shape" className="wow bannerFadeInLeft" data-wow-delay=".2s" data-wow-duration="2s" />
+          </div>
+          <div className="banner-shape two">
+            <img src="/images/banner_shape02.png" alt="shape" className="wow bannerFadeInRight" data-wow-delay=".2s" data-wow-duration="2s" />
+          </div>
+          <div className="banner-shape three">
+            <img src="/images/banner_shape03.png" alt="shape" className="wow bannerFadeInDown" data-wow-delay=".2s" data-wow-duration="2s" />
+          </div>
+          <div className="banner-shape four">
+            <img src="/images/banner_shape04.png" alt="shape" className="wow bannerFadeInDown" data-wow-delay=".2s" data-wow-duration="2s" />
+          </div>
+        </section>
 
-            <div className="text-center">
-              <div className="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                ✓
+        {/* brand-area */}
+        <div className="brand-area">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
+                <div className="brand-title text-center mb-50">
+                  <p className="title">Perfect Brand is Featured on</p>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Expert Support</h3>
-              <p className="text-gray-700">
-                Our nutrition experts are here to help you choose the right supplements for your goals.
-              </p>
+            </div>
+            <div className="row brand-active">
+              <div className="col-2">
+                <div className="brand-item">
+                  <a href="#"><img src="/images/brand_01.png" alt="brand" /></a>
+                </div>
+              </div>
+              <div className="col-2">
+                <div className="brand-item">
+                  <a href="#"><img src="/images/brand_02.png" alt="brand" /></a>
+                </div>
+              </div>
+              <div className="col-2">
+                <div className="brand-item">
+                  <a href="#"><img src="/images/brand_03.png" alt="brand" /></a>
+                </div>
+              </div>
+              <div className="col-2">
+                <div className="brand-item">
+                  <a href="#"><img src="/images/brand_04.png" alt="brand" /></a>
+                </div>
+              </div>
+              <div className="col-2">
+                <div className="brand-item">
+                  <a href="#"><img src="/images/brand_05.png" alt="brand" /></a>
+                </div>
+              </div>
+              <div className="col-2">
+                <div className="brand-item">
+                  <a href="#"><img src="/images/brand_06.png" alt="brand" /></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-foreground text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <h3 className="text-xl font-bold mb-4">Nature Cure</h3>
-              <p className="text-gray-300">
-                Your trusted source for premium health supplements and nutrition products.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Shop</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <Link href="/products" className="hover:text-white transition-colors">
-                    All Products
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/cart" className="hover:text-white transition-colors">
-                    Cart
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    About Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="font-semibold mb-4">Legal</h4>
-              <ul className="space-y-2 text-gray-300">
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    Terms of Service
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-700 pt-8 text-center text-gray-300">
-            <p>&copy; 2024 Nature Cure. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
-    </main>
+      </main>
+    </>
   );
 }
